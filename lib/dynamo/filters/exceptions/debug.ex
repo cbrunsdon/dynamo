@@ -40,7 +40,7 @@ defmodule Dynamo.Filters.Exceptions.Debug do
     conn.send(status, template(conn, assigns))
   end
 
-  defp title(:error, value), do: inspect value.__record__(:name)
+  defp title(:error, value), do: inspect value.__struct__
   defp title(other, _),      do: "unhandled #{other}"
 
   defp message(:error, value), do: value.message
